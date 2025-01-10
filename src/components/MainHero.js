@@ -1,14 +1,8 @@
 // MainHero.js
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import background from "../assets/22.jpg"; // Adjust the path as needed
-
-const images = [
-  "22.jpg", // Replace with your image paths
-  "33.jpg",
-  "44.jpg",
-];
+import background from "../assets/22.jpg"; // Single background image
 
 const HeroContainer = styled.section`
   position: relative;
@@ -16,12 +10,12 @@ const HeroContainer = styled.section`
   overflow: hidden;
   text-align: center;
   color: #fbcd37;
-  background: url(${background}) center/cover no-repeat;
-  background-attachment: fixed;
+  background: url(${background}) center/cover no-repeat fixed; // Fixed background
   font-family: "LogoFont", sans-serif;
 
   @media (max-width: 768px) {
     background-position: top;
+    background-size: cover; // Ensure the image scales properly
   }
 `;
 
@@ -39,6 +33,7 @@ const HeroBackground = styled.div`
 
   @media (max-width: 768px) {
     background-position: top;
+    background-size: cover; // Ensure the image scales properly
   }
 `;
 
@@ -105,36 +100,26 @@ const HeroButton = styled.button`
 `;
 
 const MainHero = () => {
-  const [currentImage, setCurrentImage] = useState(0);
   const [showFirstTitle, setShowFirstTitle] = useState(true);
-  const heroRef = useRef(null);
 
   useEffect(() => {
-    const imageInterval = setInterval(() => {
-      setCurrentImage((prevImage) => (prevImage + 1) % images.length);
-    }, 5000); // Change slide every 5 seconds
-
     const titleInterval = setInterval(() => {
       setShowFirstTitle((prev) => !prev);
     }, 3000); // Change title every 3 seconds for faster transitions
 
     return () => {
-      clearInterval(imageInterval);
       clearInterval(titleInterval);
     };
   }, []);
 
   return (
-    <HeroContainer id="home" ref={heroRef}>
-      <HeroBackground
-        style={{ backgroundImage: `url(${images[currentImage]})` }}
-      />
+    <HeroContainer id="home">
+      <HeroBackground style={{ backgroundImage: `url(${background})` }} />
       <HeroContent>
         <HeroTitle
           key={showFirstTitle ? "first" : "second"}
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 10 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
         >
           {showFirstTitle
