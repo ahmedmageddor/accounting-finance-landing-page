@@ -22,6 +22,10 @@ const AboutSection = styled.section`
     background: rgba(0, 0, 0, 0.5); /* Adds a dark overlay for modern look */
     z-index: 1;
   }
+
+  @media (max-width: 768px) {
+    padding: 2em 1em;
+  }
 `;
 
 const AboutContent = styled(motion.div)`
@@ -91,8 +95,6 @@ const About = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             controls.start("visible");
-          } else {
-            controls.start("hidden");
           }
         });
       },

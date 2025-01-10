@@ -101,14 +101,18 @@ const FAQ = () => {
   const [expandedIndex, setExpandedIndex] = useState(null);
 
   useEffect(() => {
+    let lastScrollY = window.scrollY;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
+          const currentScrollY = window.scrollY;
+
+          if (currentScrollY > lastScrollY && entry.isIntersecting) {
             controls.start("visible");
-          } else {
-            controls.start("hidden");
           }
+
+          lastScrollY = currentScrollY;
         });
       },
       { threshold: 0.5 }

@@ -103,6 +103,10 @@ const Header = () => {
     setIsOpen(!isOpen);
   };
 
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
   const logoControls = useAnimation();
 
   useEffect(() => {
@@ -139,16 +143,24 @@ const Header = () => {
           </MenuToggle>
           <NavbarMenu $isOpen={isOpen} role="menu" aria-hidden={!isOpen}>
             <NavbarItem>
-              <NavbarLink href="#home">Home</NavbarLink>
+              <NavbarLink href="#home" onClick={closeMenu}>
+                Home
+              </NavbarLink>
             </NavbarItem>
             <NavbarItem>
-              <NavbarLink href="#about">About Us</NavbarLink>
+              <NavbarLink href="#about" onClick={closeMenu}>
+                About Us
+              </NavbarLink>
             </NavbarItem>
             <NavbarItem>
-              <NavbarLink href="#services">Services</NavbarLink>
+              <NavbarLink href="#services" onClick={closeMenu}>
+                Services
+              </NavbarLink>
             </NavbarItem>
             <NavbarItem>
-              <NavbarLink href="#contact">Contact</NavbarLink>
+              <NavbarLink href="#contact" onClick={closeMenu}>
+                Contact
+              </NavbarLink>
             </NavbarItem>
           </NavbarMenu>
         </Navbar>

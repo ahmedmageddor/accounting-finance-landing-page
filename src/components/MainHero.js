@@ -1,7 +1,7 @@
 // MainHero.js
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import background from "../assets/22.jpg"; // Adjust the path as needed
 
 const images = [
@@ -19,6 +19,10 @@ const HeroContainer = styled.section`
   background: url(${background}) center/cover no-repeat;
   background-attachment: fixed;
   font-family: "LogoFont", sans-serif;
+
+  @media (max-width: 768px) {
+    background-position: top;
+  }
 `;
 
 const HeroBackground = styled.div`
@@ -32,6 +36,10 @@ const HeroBackground = styled.div`
   background-repeat: no-repeat;
   transition: background-image 0.3s ease-in-out;
   filter: brightness(0.7);
+
+  @media (max-width: 768px) {
+    background-position: top;
+  }
 `;
 
 const HeroContent = styled.div`
@@ -70,7 +78,7 @@ const HeroText = styled.p`
   }
 `;
 
-const HeroButton = styled(motion.button)`
+const HeroButton = styled.button`
   font-size: 1.2em;
   font-weight: bold;
   color: #161616;
@@ -100,7 +108,6 @@ const MainHero = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [showFirstTitle, setShowFirstTitle] = useState(true);
   const heroRef = useRef(null);
-  const buttonControls = useAnimation();
 
   useEffect(() => {
     const imageInterval = setInterval(() => {
@@ -116,33 +123,6 @@ const MainHero = () => {
       clearInterval(titleInterval);
     };
   }, []);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            buttonControls.start({ y: 0, opacity: 1 });
-          } else {
-            buttonControls.start({ y: 50, opacity: 0 });
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-
-    const currentRef = heroRef.current;
-
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
-
-    return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
-      }
-    };
-  }, [buttonControls]);
 
   return (
     <HeroContainer id="home" ref={heroRef}>
@@ -166,9 +146,6 @@ const MainHero = () => {
           financial solutions.
         </HeroText>
         <HeroButton
-          initial={{ y: 50, opacity: 0 }}
-          animate={buttonControls}
-          transition={{ duration: 0.5, ease: "easeInOut" }}
           onClick={() => window.scrollTo(0, document.body.scrollHeight)}
           aria-label="Contact Us"
         >

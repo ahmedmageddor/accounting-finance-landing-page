@@ -59,7 +59,7 @@ const BenefitItem = styled(motion.div)`
   padding: 1.5em; /* Reduced padding */
   background-color: rgba(22, 22, 22, 0.8); /* Matches the dark theme color */
   border-radius: 10px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 1.1);
   text-align: center;
   font-family: "Open Sans", sans-serif;
   transition: transform 0.3s, box-shadow 0.3s;
@@ -125,14 +125,18 @@ const WhyChooseUs = () => {
   const sectionRef = useRef(null);
 
   useEffect(() => {
+    let lastScrollY = window.scrollY;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
+          const currentScrollY = window.scrollY;
+
+          if (currentScrollY > lastScrollY && entry.isIntersecting) {
             controls.start("visible");
-          } else {
-            controls.start("hidden");
           }
+
+          lastScrollY = currentScrollY;
         });
       },
       { threshold: 0.5 }
