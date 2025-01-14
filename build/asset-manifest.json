@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/accounting-finance-landing-page/static/css/main.3560116b.css",
+    "main.js": "/accounting-finance-landing-page/static/js/main.80ab2354.js",
+    "static/js/453.1f214a4b.chunk.js": "/accounting-finance-landing-page/static/js/453.1f214a4b.chunk.js",
+    "static/media/22.jpg": "/accounting-finance-landing-page/static/media/22.3a775d0a8321bfa4b92b.jpg",
+    "static/media/logo.png": "/accounting-finance-landing-page/static/media/logo.5a7db4a9494a8471dc39.png",
+    "index.html": "/accounting-finance-landing-page/index.html",
+    "main.3560116b.css.map": "/accounting-finance-landing-page/static/css/main.3560116b.css.map",
+    "main.80ab2354.js.map": "/accounting-finance-landing-page/static/js/main.80ab2354.js.map",
+    "453.1f214a4b.chunk.js.map": "/accounting-finance-landing-page/static/js/453.1f214a4b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3560116b.css",
+    "static/js/main.80ab2354.js"
+  ]
+}
