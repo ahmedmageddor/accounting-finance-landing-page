@@ -121,7 +121,7 @@ const About = () => {
         animate={controls}
         variants={containerVariants}
       >
-        <AboutTitle variants={aboutVariants}>About Us</AboutTitle>
+        <AboutTitle variants={aboutVariants}>Who We Are</AboutTitle>
         <AboutText variants={aboutVariants}>
           At FinModelx, we believe that financial management should empower, not
           complicate. Our mission is to provide tailored financial solutions

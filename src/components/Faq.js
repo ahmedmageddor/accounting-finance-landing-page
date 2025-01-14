@@ -6,7 +6,7 @@ import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 const FAQSection = styled.section`
   padding: 4em 2em;
-  background-color: #161616; /* Solid background color matching the theme */
+  background-color: #268f5b; /* Solid background color matching the theme */
   color: #fbcd37;
   text-align: center;
   position: relative;
@@ -20,7 +20,7 @@ const FAQSection = styled.section`
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Adds a dark overlay for modern look */
+
     z-index: 1;
   }
 
@@ -115,7 +115,7 @@ const FAQ = () => {
           lastScrollY = currentScrollY;
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.3 }
     );
 
     const currentRef = sectionRef.current;

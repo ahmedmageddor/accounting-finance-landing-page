@@ -29,7 +29,6 @@ const HeroBackground = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   transition: background-image 0.3s ease-in-out;
-  filter: brightness(0.7);
 
   @media (max-width: 768px) {
     background-position: top;
@@ -105,7 +104,7 @@ const MainHero = () => {
   useEffect(() => {
     const titleInterval = setInterval(() => {
       setShowFirstTitle((prev) => !prev);
-    }, 3000); // Change title every 3 seconds for faster transitions
+    }, 2500); // Change title every 3 seconds for faster transitions
 
     return () => {
       clearInterval(titleInterval);

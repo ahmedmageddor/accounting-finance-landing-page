@@ -38,7 +38,7 @@ const LogoContainer = styled.a`
 `;
 
 const LogoImage = styled(motion.img)`
-  height: 35px; /* Adjusted height */
+  height: 40px; /* Increased height */
 `;
 
 const MenuToggle = styled.button`
@@ -73,15 +73,15 @@ const NavbarMenu = styled.ul`
 `;
 
 const NavbarItem = styled.li`
-  margin: 0 1.5em;
+  margin: 0 0.8em; /* Reduced margin */
 
   @media (max-width: 768px) {
-    margin: 1em 0;
+    margin: 0.3em 0; /* Reduced margin for mobile view */
   }
 `;
 
 const NavbarLink = styled.a`
-  font-size: 1.2em;
+  font-size: 1em;
   font-weight: bold;
   text-decoration: none;
   color: ${({ theme }) => theme.logo};

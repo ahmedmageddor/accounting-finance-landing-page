@@ -6,7 +6,7 @@ import About from "./components/About";
 import Services from "./components/Services";
 import WhyChooseUs from "./components/WhyChooseUs";
 import Faq from "./components/Faq";
-import Reviews from "./components/Reviews";
+
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import GlobalStyles from "./GlobalStyles";
@@ -33,7 +33,7 @@ function App() {
         <Services />
         <WhyChooseUs />
         <Faq />
-        <Reviews />
+
         <Contact />
         <Footer />
       </div>

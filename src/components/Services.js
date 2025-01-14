@@ -5,7 +5,6 @@ import { motion, useAnimation } from "framer-motion";
 import {
   FaChartLine,
   FaCalculator,
-  FaMoneyCheckAlt,
   FaBook,
   FaFileAlt,
   FaChartBar,
@@ -13,7 +12,7 @@ import {
 
 const ServicesSection = styled.section`
   padding: 4em 2em;
-  background-color: #161616; /* Solid background color matching the theme */
+  background-color: #268f5b; /* Solid background color matching the theme */
   color: #fbcd37;
   text-align: center;
   position: relative;
@@ -27,7 +26,7 @@ const ServicesSection = styled.section`
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Adds a dark overlay for modern look */
+
     z-index: 1;
   }
 
@@ -146,7 +145,7 @@ const Services = () => {
           lastScrollY = currentScrollY;
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.2 }
     );
 
     const currentRef = sectionRef.current;
@@ -169,16 +168,18 @@ const Services = () => {
         animate={controls}
         variants={containerVariants}
       >
-        <ServicesTitle variants={serviceVariants}>Our Services</ServicesTitle>
+        <ServicesTitle variants={serviceVariants}>What We Do</ServicesTitle>
         <ServicesGrid>
           <ServiceItem variants={serviceVariants}>
             <ServiceIcon>
               <FaChartLine />
             </ServiceIcon>
-            <ServiceTitle>Financial Planning</ServiceTitle>
+            <ServiceTitle>Financial Modeling & Budgeting</ServiceTitle>
             <ServiceDescription>
-              Tailored financial planning to ensure your business's growth and
-              stability.
+              Unlock the potential of your business with predictive insights!
+              helping you visualize future scenarios and navigate challenges.
+              From growth projections to risk management, we simplify your
+              financial future.
             </ServiceDescription>
           </ServiceItem>
           <ServiceItem variants={serviceVariants}>
@@ -187,37 +188,31 @@ const Services = () => {
             </ServiceIcon>
             <ServiceTitle>Accounting & Bookkeeping</ServiceTitle>
             <ServiceDescription>
-              Comprehensive accounting and bookkeeping services to keep your
-              finances in order.
-            </ServiceDescription>
-          </ServiceItem>
-          <ServiceItem variants={serviceVariants}>
-            <ServiceIcon>
-              <FaMoneyCheckAlt />
-            </ServiceIcon>
-            <ServiceTitle>Tax Services</ServiceTitle>
-            <ServiceDescription>
-              Expert tax services to optimize your tax strategy and compliance.
+              Customized accounting solutions designed to meet your current and
+              future needs. Gain clarity and confidence in your financial data,
+              enabling informed decisions that drive growth.
             </ServiceDescription>
           </ServiceItem>
           <ServiceItem variants={serviceVariants}>
             <ServiceIcon>
               <FaBook />
             </ServiceIcon>
-            <ServiceTitle>Financial Modeling & Budgeting</ServiceTitle>
+            <ServiceTitle>Financial Statements</ServiceTitle>
             <ServiceDescription>
-              Advanced financial modeling and budgeting to support your business
-              decisions.
+              Understand the story behind your financial statements! Clarifying
+              balance sheets and income statements, empowering you to make
+              informed decisions that lead to financial success.
             </ServiceDescription>
           </ServiceItem>
           <ServiceItem variants={serviceVariants}>
             <ServiceIcon>
               <FaFileAlt />
             </ServiceIcon>
-            <ServiceTitle>Financial Statements</ServiceTitle>
+            <ServiceTitle>Additional Reporting Support</ServiceTitle>
             <ServiceDescription>
-              Accurate financial statements to provide a clear picture of your
-              financial health.
+              Need temporary assistance with requests from banks, investors, or
+              regulatory bodies? We’re here to help you manage these reporting
+              demands, freeing up your time to focus on daily operations.
             </ServiceDescription>
           </ServiceItem>
           <ServiceItem variants={serviceVariants}>
@@ -226,8 +221,11 @@ const Services = () => {
             </ServiceIcon>
             <ServiceTitle>Financial Planning and Analysis</ServiceTitle>
             <ServiceDescription>
-              In-depth financial planning and analysis to drive your business
-              strategy.
+              Worried about your long-term vision? We assist you in crafting and
+              refining your financial plan, generating insightful management
+              reports, and analyzing trends in cash flow. With our support,
+              answering "Where do you see yourself in five years?" becomes a
+              strategic conversation.
             </ServiceDescription>
           </ServiceItem>
         </ServicesGrid>

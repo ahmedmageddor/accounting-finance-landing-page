@@ -139,7 +139,7 @@ const WhyChooseUs = () => {
           lastScrollY = currentScrollY;
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.3 }
     );
 
     const currentRef = sectionRef.current;
@@ -170,40 +170,38 @@ const WhyChooseUs = () => {
             <BenefitIcon>
               <FaCheckCircle />
             </BenefitIcon>
-            <BenefitTitle>Expert Team</BenefitTitle>
+            <BenefitTitle>Affordable Expertise</BenefitTitle>
             <BenefitDescription>
-              Our team consists of seasoned experts with extensive industry
-              knowledge.
+              Access professional accounting services without hidden fees.
             </BenefitDescription>
           </BenefitItem>
           <BenefitItem variants={benefitVariants}>
             <BenefitIcon>
               <FaHandshake />
             </BenefitIcon>
-            <BenefitTitle>Personalized Service</BenefitTitle>
+            <BenefitTitle>Extensive Experience</BenefitTitle>
             <BenefitDescription>
-              We provide tailored solutions to meet the unique needs of each
-              client.
+              Benefit from our years of expertise in accounting and finance,
+              focusing on startups.
             </BenefitDescription>
           </BenefitItem>
           <BenefitItem variants={benefitVariants}>
             <BenefitIcon>
               <FaStar />
             </BenefitIcon>
-            <BenefitTitle>Proven Results</BenefitTitle>
+            <BenefitTitle>Focus on Your Business</BenefitTitle>
             <BenefitDescription>
-              Our clients have seen measurable improvements in their financial
-              performance.
+              You manage your operations; we’ll handle your accounting.
             </BenefitDescription>
           </BenefitItem>
           <BenefitItem variants={benefitVariants}>
             <BenefitIcon>
               <FaUsers />
             </BenefitIcon>
-            <BenefitTitle>Long-term Partnerships</BenefitTitle>
+            <BenefitTitle>Precision and Reliability</BenefitTitle>
             <BenefitDescription>
-              We build lasting relationships with our clients, ensuring
-              sustained success.
+              Count on our attention to detail and thorough validation processes
+              for trustworthy financial forecasts.
             </BenefitDescription>
           </BenefitItem>
         </BenefitsGrid>

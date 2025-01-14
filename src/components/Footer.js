@@ -5,7 +5,7 @@ import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa";
 
 const FooterContainer = styled.footer`
   padding: 2em;
-  background-color: #161616; /* Matches the dark theme */
+  background-color: #268f5b; /* Matches the dark theme */
   color: #fbcd37;
   text-align: center;
   font-family: "LogoFont", sans-serif;

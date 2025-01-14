@@ -6,23 +6,12 @@ import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 
 const ContactSection = styled.section`
   padding: 4em 2em;
-  background-color: #161616; /* Solid background color matching the theme */
+  background-color: #161616;
   color: #fbcd37;
   text-align: center;
   position: relative;
   overflow: hidden;
   font-family: "LogoFont", sans-serif;
-
-  &:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Adds a dark overlay for modern look */
-    z-index: 1;
-  }
 
   @media (max-width: 768px) {
     padding: 2em 1em;
@@ -49,20 +38,21 @@ const ContactTitle = styled(motion.h2)`
 
 const ContactGrid = styled(motion.div)`
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1em; /* Reduced gap for smaller items */
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
 `;
 
 const ContactItem = styled(motion.div)`
-  flex: 1 1 250px; /* Reduced size for smaller items */
-  padding: 1.5em; /* Reduced padding */
-  background-color: rgba(22, 22, 22, 0.8); /* Matches the dark theme color */
+  width: 100%;
+  padding: 1.5em;
+  background-color: rgba(22, 22, 22, 0.8);
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   text-align: center;
   font-family: "Open Sans", sans-serif;
   transition: transform 0.3s, box-shadow 0.3s;
+  margin-bottom: 1em;
 
   &:hover {
     transform: translateY(-10px);
@@ -75,18 +65,73 @@ const ContactItem = styled(motion.div)`
 `;
 
 const ContactIcon = styled(motion.div)`
-  font-size: 2.5em; /* Adjusted icon size */
+  font-size: 2.5em;
   color: #fbcd37;
   margin-bottom: 0.5em;
 `;
 
 const ContactText = styled.p`
-  font-size: 1em; /* Adjusted description size */
+  font-size: 1.2em;
   color: #fff;
   line-height: 1.4;
 
   @media (max-width: 768px) {
-    font-size: 0.9em;
+    font-size: 1em;
+  }
+`;
+
+const InputWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  margin-top: 2em;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+`;
+
+const EmailInput = styled.input`
+  padding: 0.8em;
+  font-size: 1.2em;
+  border-radius: 5px;
+  border: none;
+  width: 100%;
+  max-width: 300px;
+
+  @media (min-width: 768px) {
+    width: 300px;
+  }
+`;
+
+const ContactButton = styled(motion.button)`
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #161616;
+  background: #fbcd37;
+  padding: 0.8em 2em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+  font-family: "Open Sans", sans-serif;
+
+  &:hover {
+    background: #161616;
+    color: #fbcd37;
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  @media (min-width: 768px) {
+    width: auto;
   }
 `;
 
@@ -95,7 +140,7 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.5 /* Adjusted stagger effect */,
+      staggerChildren: 0.5,
     },
   },
 };
@@ -114,21 +159,15 @@ const Contact = () => {
   const sectionRef = useRef(null);
 
   useEffect(() => {
-    let lastScrollY = window.scrollY;
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          const currentScrollY = window.scrollY;
-
-          if (currentScrollY > lastScrollY && entry.isIntersecting) {
+          if (entry.isIntersecting) {
             controls.start("visible");
           }
-
-          lastScrollY = currentScrollY;
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.3 }
     );
 
     const currentRef = sectionRef.current;
@@ -172,6 +211,16 @@ const Contact = () => {
             <ContactText>123 Finance Street, City, Country</ContactText>
           </ContactItem>
         </ContactGrid>
+        <InputWrapper>
+          <EmailInput type="email" placeholder="Enter your email" />
+          <ContactButton
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            aria-label="Stay in the loop"
+          >
+            Stay in the loop
+          </ContactButton>
+        </InputWrapper>
       </ContactContent>
     </ContactSection>
   );
