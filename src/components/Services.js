@@ -1,4 +1,3 @@
-// Services.js
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { motion, useAnimation } from "framer-motion";
@@ -12,23 +11,16 @@ import {
 
 const ServicesSection = styled.section`
   padding: 4em 2em;
-  background-color: #268f5b; /* Solid background color matching the theme */
+  background: linear-gradient(
+    180deg,
+    rgba(38, 143, 91, 1) 0%,
+    rgba(22, 22, 22, 1) 62%
+  );
   color: #fbcd37;
   text-align: center;
   position: relative;
   overflow: hidden;
   font-family: "LogoFont", sans-serif;
-
-  &:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    z-index: 1;
-  }
 
   @media (max-width: 768px) {
     padding: 2em 1em;
@@ -44,7 +36,7 @@ const ServicesContent = styled(motion.div)`
 
 const ServicesTitle = styled(motion.h2)`
   font-size: 2.5em;
-  color: #fff;
+  color: #fbcd37;
   font-weight: bold;
   margin-bottom: 1em;
 
@@ -57,13 +49,17 @@ const ServicesGrid = styled(motion.div)`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1em; /* Reduced gap for smaller items */
+  gap: 1em;
 `;
 
 const ServiceItem = styled(motion.div)`
-  flex: 1 1 250px; /* Reduced size for smaller items */
-  padding: 1.5em; /* Reduced padding */
-  background-color: rgba(22, 22, 22, 0.8); /* Matches the dark theme color */
+  flex: 1 1 250px;
+  padding: 1.5em;
+  background: linear-gradient(
+    180deg,
+    rgba(22, 22, 22, 1) 42%,
+    rgba(38, 143, 91, 1) 94%
+  );
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -81,14 +77,20 @@ const ServiceItem = styled(motion.div)`
 `;
 
 const ServiceIcon = styled(motion.div)`
-  font-size: 2.5em; /* Reduced icon size */
+  font-size: 2.5em;
   color: #fbcd37;
   margin-bottom: 0.5em;
+
+  &:hover {
+    color: #fff;
+    transform: scale(1.2);
+    transition: transform 0.3s, color 0.3s;
+  }
 `;
 
 const ServiceTitle = styled.h3`
-  font-size: 1.2em; /* Reduced title size */
-  color: #fff;
+  font-size: 1.2em;
+  color: #fbcd37;
   font-weight: bold;
   margin-bottom: 0.5em;
 
@@ -98,7 +100,7 @@ const ServiceTitle = styled.h3`
 `;
 
 const ServiceDescription = styled.p`
-  font-size: 1em; /* Reduced description size */
+  font-size: 1em;
   color: #fff;
   line-height: 1.4;
 
@@ -112,7 +114,7 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.5 /* Adjusted stagger effect */,
+      staggerChildren: 0.5,
     },
   },
 };
@@ -171,19 +173,19 @@ const Services = () => {
         <ServicesTitle variants={serviceVariants}>What We Do</ServicesTitle>
         <ServicesGrid>
           <ServiceItem variants={serviceVariants}>
-            <ServiceIcon>
+            <ServiceIcon whileHover={{ scale: 1.3 }} whileTap={{ scale: 0.9 }}>
               <FaChartLine />
             </ServiceIcon>
             <ServiceTitle>Financial Modeling & Budgeting</ServiceTitle>
             <ServiceDescription>
               Unlock the potential of your business with predictive insights!
-              helping you visualize future scenarios and navigate challenges.
+              Helping you visualize future scenarios and navigate challenges.
               From growth projections to risk management, we simplify your
               financial future.
             </ServiceDescription>
           </ServiceItem>
           <ServiceItem variants={serviceVariants}>
-            <ServiceIcon>
+            <ServiceIcon whileHover={{ scale: 1.3 }} whileTap={{ scale: 0.9 }}>
               <FaCalculator />
             </ServiceIcon>
             <ServiceTitle>Accounting & Bookkeeping</ServiceTitle>
@@ -194,7 +196,7 @@ const Services = () => {
             </ServiceDescription>
           </ServiceItem>
           <ServiceItem variants={serviceVariants}>
-            <ServiceIcon>
+            <ServiceIcon whileHover={{ scale: 1.3 }} whileTap={{ scale: 0.9 }}>
               <FaBook />
             </ServiceIcon>
             <ServiceTitle>Financial Statements</ServiceTitle>
@@ -205,7 +207,7 @@ const Services = () => {
             </ServiceDescription>
           </ServiceItem>
           <ServiceItem variants={serviceVariants}>
-            <ServiceIcon>
+            <ServiceIcon whileHover={{ scale: 1.3 }} whileTap={{ scale: 0.9 }}>
               <FaFileAlt />
             </ServiceIcon>
             <ServiceTitle>Additional Reporting Support</ServiceTitle>
@@ -216,7 +218,7 @@ const Services = () => {
             </ServiceDescription>
           </ServiceItem>
           <ServiceItem variants={serviceVariants}>
-            <ServiceIcon>
+            <ServiceIcon whileHover={{ scale: 1.3 }} whileTap={{ scale: 0.9 }}>
               <FaChartBar />
             </ServiceIcon>
             <ServiceTitle>Financial Planning and Analysis</ServiceTitle>

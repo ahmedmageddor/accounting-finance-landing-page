@@ -5,7 +5,13 @@ import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa";
 
 const FooterContainer = styled.footer`
   padding: 2em;
-  background-color: #268f5b; /* Matches the dark theme */
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(
+    180deg,
+    rgba(38, 143, 91, 1) 0%,
+    rgba(22, 22, 22, 1) 62%
+  );
   color: #fbcd37;
   text-align: center;
   font-family: "LogoFont", sans-serif;
@@ -14,7 +20,8 @@ const FooterContainer = styled.footer`
 const FooterContent = styled.div`
   max-width: 1200px;
   margin: 0 auto;
-
+  position: relative;
+  z-index: 2;
   @media (max-width: 768px) {
     padding: 1em;
   }

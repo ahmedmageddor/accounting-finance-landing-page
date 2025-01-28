@@ -1,9 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 
 const useFaqToggle = () => {
-  useEffect(() => {
-    const faqItems = document.querySelectorAll(".faq-item");
+  const faqItems = useMemo(() => document.querySelectorAll(".faq-item"), []);
 
+  useEffect(() => {
     const handleFaqToggle = (item) => {
       item.classList.toggle("active");
       const answer = item.querySelector(".faq-answer");
@@ -14,16 +14,21 @@ const useFaqToggle = () => {
       }
     };
 
+    const handleClick = (event) => {
+      const item = event.currentTarget;
+      handleFaqToggle(item);
+    };
+
     faqItems.forEach((item) => {
-      item.addEventListener("click", () => handleFaqToggle(item));
+      item.addEventListener("click", handleClick);
     });
 
     return () => {
       faqItems.forEach((item) => {
-        item.removeEventListener("click", () => handleFaqToggle(item));
+        item.removeEventListener("click", handleClick);
       });
     };
-  }, []);
+  }, [faqItems]);
 };
 
 export default useFaqToggle;

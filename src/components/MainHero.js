@@ -1,38 +1,21 @@
-// MainHero.js
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import background from "../assets/22.jpg"; // Single background image
+import background from "../assets/22.jpg";
 
 const HeroContainer = styled.section`
   position: relative;
+  z-index: 0;
   height: 100vh;
   overflow: hidden;
   text-align: center;
   color: #fbcd37;
-  background: url(${background}) center/cover no-repeat fixed; // Fixed background
+  background: url(${background}) center/cover no-repeat fixed;
   font-family: "LogoFont", sans-serif;
 
   @media (max-width: 768px) {
     background-position: top;
-    background-size: cover; // Ensure the image scales properly
-  }
-`;
-
-const HeroBackground = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  transition: background-image 0.3s ease-in-out;
-
-  @media (max-width: 768px) {
-    background-position: top;
-    background-size: cover; // Ensure the image scales properly
+    background-size: cover;
   }
 `;
 
@@ -53,7 +36,7 @@ const HeroTitle = styled(motion.h1)`
   font-size: 3em;
   font-weight: bold;
   margin: 0.5em 0;
-  color: #fff;
+  color: #fbcd37;
   font-family: "LogoFont", sans-serif;
 
   @media (max-width: 768px) {
@@ -104,7 +87,7 @@ const MainHero = () => {
   useEffect(() => {
     const titleInterval = setInterval(() => {
       setShowFirstTitle((prev) => !prev);
-    }, 2500); // Change title every 3 seconds for faster transitions
+    }, 2500);
 
     return () => {
       clearInterval(titleInterval);
@@ -113,7 +96,6 @@ const MainHero = () => {
 
   return (
     <HeroContainer id="home">
-      <HeroBackground style={{ backgroundImage: `url(${background})` }} />
       <HeroContent>
         <HeroTitle
           key={showFirstTitle ? "first" : "second"}

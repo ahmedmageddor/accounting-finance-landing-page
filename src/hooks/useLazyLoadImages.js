@@ -1,66 +1,60 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 const useLazyLoadImages = () => {
+  const throttleTimeout = useRef(null);
+
   useEffect(() => {
     const lazyImages = document.querySelectorAll("img.lazy");
 
-    if ("IntersectionObserver" in window) {
-      const lazyImageObserver = new IntersectionObserver(
-        (entries, observer) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              const lazyImage = entry.target;
-              lazyImage.src = lazyImage.dataset.src;
-              lazyImage.classList.remove("lazy");
-              lazyImageObserver.unobserve(lazyImage);
-            }
-          });
-        }
-      );
+    const loadImages = (image) => {
+      image.src = image.dataset.src;
+      image.classList.remove("lazy");
+    };
 
-      lazyImages.forEach((lazyImage) => {
-        lazyImageObserver.observe(lazyImage);
+    const lazyLoad = () => {
+      if (throttleTimeout.current) {
+        clearTimeout(throttleTimeout.current);
+      }
+
+      throttleTimeout.current = setTimeout(() => {
+        const scrollTop = window.pageYOffset;
+        lazyImages.forEach((img) => {
+          if (img.offsetTop < window.innerHeight + scrollTop) {
+            loadImages(img);
+          }
+        });
+
+        if (lazyImages.length === 0) {
+          removeListeners();
+        }
+      }, 20);
+    };
+
+    const removeListeners = () => {
+      document.removeEventListener("scroll", lazyLoad);
+      window.removeEventListener("resize", lazyLoad);
+      window.removeEventListener("orientationchange", lazyLoad);
+    };
+
+    if ("IntersectionObserver" in window) {
+      const lazyImageObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            loadImages(entry.target);
+            lazyImageObserver.unobserve(entry.target);
+          }
+        });
       });
 
-      return () => {
-        lazyImages.forEach((lazyImage) => {
-          lazyImageObserver.unobserve(lazyImage);
-        });
-      };
+      lazyImages.forEach((img) => lazyImageObserver.observe(img));
+
+      return () => lazyImageObserver.disconnect();
     } else {
-      const lazyLoadThrottleTimeout = null;
-
-      const lazyLoad = () => {
-        if (lazyLoadThrottleTimeout) {
-          clearTimeout(lazyLoadThrottleTimeout);
-        }
-
-        setTimeout(() => {
-          const scrollTop = window.pageYOffset;
-          lazyImages.forEach((img) => {
-            if (img.offsetTop < window.innerHeight + scrollTop) {
-              img.src = img.dataset.src;
-              img.classList.remove("lazy");
-            }
-          });
-
-          if (lazyImages.length === 0) {
-            document.removeEventListener("scroll", lazyLoad);
-            window.removeEventListener("resize", lazyLoad);
-            window.removeEventListener("orientationchange", lazyLoad);
-          }
-        }, 20);
-      };
-
       document.addEventListener("scroll", lazyLoad);
       window.addEventListener("resize", lazyLoad);
       window.addEventListener("orientationchange", lazyLoad);
 
-      return () => {
-        document.removeEventListener("scroll", lazyLoad);
-        window.removeEventListener("resize", lazyLoad);
-        window.removeEventListener("orientationchange", lazyLoad);
-      };
+      return removeListeners;
     }
   }, []);
 };

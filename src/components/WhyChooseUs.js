@@ -1,4 +1,3 @@
-// WhyChooseUs.js
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { motion, useAnimation } from "framer-motion";
@@ -6,23 +5,16 @@ import { FaCheckCircle, FaHandshake, FaStar, FaUsers } from "react-icons/fa";
 
 const WhyChooseUsSection = styled.section`
   padding: 4em 2em;
-  background-color: #161616; /* Solid background color matching the theme */
+  background: linear-gradient(
+    180deg,
+    rgba(22, 22, 22, 1) 42%,
+    rgba(38, 143, 91, 1) 94%
+  );
   color: #fbcd37;
   text-align: center;
   position: relative;
   overflow: hidden;
   font-family: "LogoFont", sans-serif;
-
-  &:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Adds a dark overlay for modern look */
-    z-index: 1;
-  }
 
   @media (max-width: 768px) {
     padding: 2em 1em;
@@ -38,7 +30,7 @@ const WhyChooseUsContent = styled(motion.div)`
 
 const WhyChooseUsTitle = styled(motion.h2)`
   font-size: 2.5em;
-  color: #fff;
+  color: #fbcd37;
   font-weight: bold;
   margin-bottom: 1em;
 
@@ -51,13 +43,17 @@ const BenefitsGrid = styled(motion.div)`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1em; /* Reduced gap for smaller items */
+  gap: 1em;
 `;
 
 const BenefitItem = styled(motion.div)`
-  flex: 1 1 250px; /* Reduced size for smaller items */
-  padding: 1.5em; /* Reduced padding */
-  background-color: rgba(22, 22, 22, 0.8); /* Matches the dark theme color */
+  flex: 1 1 250px;
+  padding: 1.5em;
+  background: linear-gradient(
+    180deg,
+    rgba(38, 143, 91, 1) 0%,
+    rgba(22, 22, 22, 1) 62%
+  );
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 1.1);
   text-align: center;
@@ -75,14 +71,14 @@ const BenefitItem = styled(motion.div)`
 `;
 
 const BenefitIcon = styled(motion.div)`
-  font-size: 2.5em; /* Reduced icon size */
+  font-size: 2.5em;
   color: #fbcd37;
   margin-bottom: 0.5em;
 `;
 
 const BenefitTitle = styled.h3`
-  font-size: 1.2em; /* Reduced title size */
-  color: #fff;
+  font-size: 1.2em;
+  color: #fbcd37;
   font-weight: bold;
   margin-bottom: 0.5em;
 
@@ -92,7 +88,7 @@ const BenefitTitle = styled.h3`
 `;
 
 const BenefitDescription = styled.p`
-  font-size: 1em; /* Reduced description size */
+  font-size: 1em;
   color: #fff;
   line-height: 1.4;
 
@@ -106,7 +102,7 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.5 /* Adjusted stagger effect */,
+      staggerChildren: 0.5,
     },
   },
 };
@@ -167,7 +163,7 @@ const WhyChooseUs = () => {
         </WhyChooseUsTitle>
         <BenefitsGrid>
           <BenefitItem variants={benefitVariants}>
-            <BenefitIcon>
+            <BenefitIcon whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }}>
               <FaCheckCircle />
             </BenefitIcon>
             <BenefitTitle>Affordable Expertise</BenefitTitle>
@@ -176,7 +172,7 @@ const WhyChooseUs = () => {
             </BenefitDescription>
           </BenefitItem>
           <BenefitItem variants={benefitVariants}>
-            <BenefitIcon>
+            <BenefitIcon whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }}>
               <FaHandshake />
             </BenefitIcon>
             <BenefitTitle>Extensive Experience</BenefitTitle>
@@ -186,7 +182,7 @@ const WhyChooseUs = () => {
             </BenefitDescription>
           </BenefitItem>
           <BenefitItem variants={benefitVariants}>
-            <BenefitIcon>
+            <BenefitIcon whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }}>
               <FaStar />
             </BenefitIcon>
             <BenefitTitle>Focus on Your Business</BenefitTitle>
@@ -195,7 +191,7 @@ const WhyChooseUs = () => {
             </BenefitDescription>
           </BenefitItem>
           <BenefitItem variants={benefitVariants}>
-            <BenefitIcon>
+            <BenefitIcon whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }}>
               <FaUsers />
             </BenefitIcon>
             <BenefitTitle>Precision and Reliability</BenefitTitle>

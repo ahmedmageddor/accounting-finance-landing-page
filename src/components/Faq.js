@@ -6,7 +6,11 @@ import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 const FAQSection = styled.section`
   padding: 4em 2em;
-  background-color: #268f5b; /* Solid background color matching the theme */
+  background: linear-gradient(
+    180deg,
+    rgba(38, 143, 91, 1) 0%,
+    rgba(22, 22, 22, 1) 62%
+  );
   color: #fbcd37;
   text-align: center;
   position: relative;
@@ -38,7 +42,7 @@ const FAQContent = styled(motion.div)`
 
 const FAQTitle = styled(motion.h2)`
   font-size: 2.5em;
-  color: #fff;
+  color: #fbcd37;
   font-weight: bold;
   margin-bottom: 1em;
 
@@ -48,7 +52,11 @@ const FAQTitle = styled(motion.h2)`
 `;
 
 const FAQItem = styled(motion.div)`
-  background-color: rgba(22, 22, 22, 0.8);
+  background: linear-gradient(
+    180deg,
+    rgba(22, 22, 22, 1) 42%,
+    rgba(38, 143, 91, 1) 94%
+  );
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   margin-bottom: 1em;
@@ -62,7 +70,7 @@ const FAQQuestion = styled.div`
   align-items: center;
   font-size: 1.2em;
   font-weight: bold;
-  color: #fff;
+  color: #fbcd37;
 
   @media (max-width: 768px) {
     font-size: 1em;

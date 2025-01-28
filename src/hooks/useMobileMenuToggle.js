@@ -1,33 +1,35 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 
 const useMobileMenuToggle = () => {
+  const menuToggle = useMemo(() => document.querySelector(".menu-toggle"), []);
+  const navbarRight = useMemo(
+    () => document.querySelector(".navbar__right"),
+    []
+  );
+
   useEffect(() => {
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navbarRight = document.querySelector(".navbar__right");
+    if (!menuToggle || !navbarRight) return;
 
-    if (menuToggle && navbarRight) {
-      const handleToggle = () => {
-        navbarRight.classList.toggle("active");
-        menuToggle.classList.toggle("active");
-      };
+    const handleToggle = () => {
+      navbarRight.classList.toggle("active");
+      menuToggle.classList.toggle("active");
+    };
 
-      const handleClick = (event) => {
-        if (event.target.tagName === "A") {
-          navbarRight.classList.remove("active");
-          menuToggle.classList.remove("active");
-        }
-      };
+    const handleClick = (event) => {
+      if (event.target.tagName === "A") {
+        navbarRight.classList.remove("active");
+        menuToggle.classList.remove("active");
+      }
+    };
 
-      menuToggle.addEventListener("click", handleToggle);
-      navbarRight.addEventListener("click", handleClick);
+    menuToggle.addEventListener("click", handleToggle);
+    navbarRight.addEventListener("click", handleClick);
 
-      // Cleanup function to remove event listeners
-      return () => {
-        menuToggle.removeEventListener("click", handleToggle);
-        navbarRight.removeEventListener("click", handleClick);
-      };
-    }
-  }, []);
+    return () => {
+      menuToggle.removeEventListener("click", handleToggle);
+      navbarRight.removeEventListener("click", handleClick);
+    };
+  }, [menuToggle, navbarRight]);
 };
 
 export default useMobileMenuToggle;

@@ -1,6 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 
 const useSmoothScroll = () => {
+  const anchors = useMemo(() => document.querySelectorAll(".menu__link"), []);
+
   useEffect(() => {
     const handleScroll = (e) => {
       e.preventDefault();
@@ -17,7 +19,6 @@ const useSmoothScroll = () => {
       }
     };
 
-    const anchors = document.querySelectorAll(".menu__link");
     anchors.forEach((anchor) => {
       anchor.addEventListener("click", handleScroll);
     });
@@ -27,7 +28,7 @@ const useSmoothScroll = () => {
         anchor.removeEventListener("click", handleScroll);
       });
     };
-  }, []);
+  }, [anchors]);
 };
 
 export default useSmoothScroll;

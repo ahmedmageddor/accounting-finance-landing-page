@@ -1,4 +1,3 @@
-// Header.js
 import React, { useState, useEffect } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { motion, useAnimation } from "framer-motion";
@@ -38,7 +37,7 @@ const LogoContainer = styled.a`
 `;
 
 const LogoImage = styled(motion.img)`
-  height: 40px; /* Increased height */
+  height: 40px;
 `;
 
 const MenuToggle = styled.button`
@@ -73,10 +72,10 @@ const NavbarMenu = styled.ul`
 `;
 
 const NavbarItem = styled.li`
-  margin: 0 0.8em; /* Reduced margin */
+  margin: 0 0.8em;
 
   @media (max-width: 768px) {
-    margin: 0.3em 0; /* Reduced margin for mobile view */
+    margin: 0.3em 0;
   }
 `;
 
@@ -99,13 +98,9 @@ const NavbarLink = styled.a`
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  const toggleMenu = () => setIsOpen(!isOpen);
 
-  const closeMenu = () => {
-    setIsOpen(false);
-  };
+  const closeMenu = () => setIsOpen(false);
 
   const logoControls = useAnimation();
 
