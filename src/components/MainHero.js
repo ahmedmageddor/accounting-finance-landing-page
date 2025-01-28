@@ -10,7 +10,7 @@ const HeroContainer = styled.section`
   overflow: hidden;
   text-align: center;
   color: #fbcd37;
-  background: url(${background}) center/cover no-repeat fixed;
+  background: url(${background}) no-repeat center center/cover;
   font-family: "LogoFont", sans-serif;
 
   @media (max-width: 768px) {
