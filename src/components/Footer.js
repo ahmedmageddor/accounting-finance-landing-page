@@ -7,11 +7,8 @@ const FooterContainer = styled.footer`
   padding: 2em;
   position: relative;
   z-index: 2;
-  background: linear-gradient(
-    180deg,
-    rgba(38, 143, 91, 1) 0%,
-    rgba(22, 22, 22, 1) 62%
-  );
+  background: rgba(38, 143, 91, 1) 0%;
+
   color: #fbcd37;
   text-align: center;
   font-family: "LogoFont", sans-serif;

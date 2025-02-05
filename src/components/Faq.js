@@ -6,11 +6,8 @@ import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 const FAQSection = styled.section`
   padding: 4em 2em;
-  background: linear-gradient(
-    180deg,
-    rgba(38, 143, 91, 1) 0%,
-    rgba(22, 22, 22, 1) 62%
-  );
+  background: rgba(38, 143, 91, 1) 0%;
+
   color: #fbcd37;
   text-align: center;
   position: relative;
@@ -52,11 +49,7 @@ const FAQTitle = styled(motion.h2)`
 `;
 
 const FAQItem = styled(motion.div)`
-  background: linear-gradient(
-    180deg,
-    rgba(22, 22, 22, 1) 42%,
-    rgba(38, 143, 91, 1) 94%
-  );
+  background: rgba(22, 22, 22, 1) 42%;
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   margin-bottom: 1em;

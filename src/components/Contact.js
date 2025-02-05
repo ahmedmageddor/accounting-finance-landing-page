@@ -4,11 +4,7 @@ import { motion } from "framer-motion";
 
 const ContactSection = styled.section`
   padding: 4em 2em;
-  background: linear-gradient(
-    180deg,
-    rgba(22, 22, 22, 1) 42%,
-    rgba(38, 143, 91, 1) 94%
-  );
+  background: black;
   color: #fbcd37;
   text-align: center;
   position: relative;
@@ -37,11 +33,7 @@ const ContactContent = styled(motion.div)`
   max-width: 800px;
   margin: 0 auto;
   padding: 2em;
-  background: linear-gradient(
-    180deg,
-    rgba(38, 143, 91, 1) 0%,
-    rgba(22, 22, 22, 1) 62%
-  );
+  background: rgba(22, 22, 22, 1) 42%;
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   font-family: "Open Sans", sans-serif;

@@ -11,11 +11,7 @@ import {
 
 const ServicesSection = styled.section`
   padding: 4em 2em;
-  background: linear-gradient(
-    180deg,
-    rgba(38, 143, 91, 1) 0%,
-    rgba(22, 22, 22, 1) 62%
-  );
+  background: rgba(38, 143, 91, 1) 0%;
   color: #fbcd37;
   text-align: center;
   position: relative;
@@ -55,11 +51,7 @@ const ServicesGrid = styled(motion.div)`
 const ServiceItem = styled(motion.div)`
   flex: 1 1 250px;
   padding: 1.5em;
-  background: linear-gradient(
-    180deg,
-    rgba(22, 22, 22, 1) 42%,
-    rgba(38, 143, 91, 1) 94%
-  );
+  background: rgba(22, 22, 22, 1) 42%;
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   text-align: center;
