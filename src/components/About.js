@@ -80,9 +80,9 @@ const AboutImage = styled(motion.div)`
 `;
 
 const Image = styled(motion.img)`
-  width: 90%;
+  width: 100%;
   height: auto;
-  border-radius: 10px;
+  border-radius: 0px 0px 10px 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 `;
 
