@@ -14,6 +14,13 @@ const AboutSection = styled.section`
 
   @media (max-width: 768px) {
     padding: 2em 1em;
+    text-align: center;
+  }
+
+  @media (min-width: 769px) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 `;
 
@@ -30,6 +37,11 @@ const AboutContent = styled(motion.div)`
 
   @media (max-width: 768px) {
     padding: 1em;
+  }
+
+  @media (min-width: 769px) {
+    margin: 0;
+    flex: 1;
   }
 `;
 
@@ -55,18 +67,29 @@ const AboutText = styled(motion.p)`
   }
 `;
 
-const AboutImage = styled(motion.img)`
+const AboutImage = styled(motion.div)`
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (min-width: 769px) {
+    width: 50%;
+    margin-left: 2em;
+  }
+`;
+
+const Image = styled(motion.img)`
+  width: 90%;
   height: auto;
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  margin: 2em 0;
 `;
 
 const CallToAction = styled(motion.a)`
   display: inline-block;
   margin-top: 2em;
-  padding: 0.8em 2em;
+  padding: 0.5em 1.5em; /* Smaller button size */
   background: #fbcd37;
   color: #161616;
   font-weight: bold;
@@ -114,7 +137,7 @@ const About = () => {
           }
         });
       },
-      { threshold: 0.1 } // Lower the threshold to trigger earlier
+      { threshold: 0.1 }
     );
 
     const currentRef = sectionRef.current;
@@ -143,7 +166,9 @@ const About = () => {
             {paragraph}
           </AboutText>
         ))}
-        <AboutImage src={teamImage} alt="Our Team" variants={aboutVariants} />
+      </AboutContent>
+      <AboutImage>
+        <Image src={teamImage} alt="Our Team" variants={aboutVariants} />
         <CallToAction
           href="#contact"
           variants={aboutVariants}
@@ -151,7 +176,7 @@ const About = () => {
         >
           Get in Touch
         </CallToAction>
-      </AboutContent>
+      </AboutImage>
     </AboutSection>
   );
 };

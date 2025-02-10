@@ -108,8 +108,8 @@ const MainHero = () => {
             : "While We Handle the Numbers."}
         </HeroTitle>
         <HeroText>
-          Empowering startups, small and medium-sized companies with tailored
-          financial solutions.
+          Empowering startups, small and e-commerce businesses with tailored
+          financial solutions
         </HeroText>
         <HeroButton
           onClick={() => window.scrollTo(0, document.body.scrollHeight)}

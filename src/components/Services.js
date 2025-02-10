@@ -1,13 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { motion, useAnimation } from "framer-motion";
-import {
-  FaChartLine,
-  FaCalculator,
-  FaBook,
-  FaFileAlt,
-  FaChartBar,
-} from "react-icons/fa";
+import { FaChartLine, FaCalculator, FaBook, FaFileAlt } from "react-icons/fa";
 
 const ServicesSection = styled.section`
   padding: 4em 2em;
@@ -166,18 +160,6 @@ const Services = () => {
         <ServicesGrid>
           <ServiceItem variants={serviceVariants}>
             <ServiceIcon whileHover={{ scale: 1.3 }} whileTap={{ scale: 0.9 }}>
-              <FaChartLine />
-            </ServiceIcon>
-            <ServiceTitle>Financial Modeling & Budgeting</ServiceTitle>
-            <ServiceDescription>
-              Unlock the potential of your business with predictive insights!
-              Helping you visualize future scenarios and navigate challenges.
-              From growth projections to risk management, we simplify your
-              financial future.
-            </ServiceDescription>
-          </ServiceItem>
-          <ServiceItem variants={serviceVariants}>
-            <ServiceIcon whileHover={{ scale: 1.3 }} whileTap={{ scale: 0.9 }}>
               <FaCalculator />
             </ServiceIcon>
             <ServiceTitle>Accounting & Bookkeeping</ServiceTitle>
@@ -200,26 +182,27 @@ const Services = () => {
           </ServiceItem>
           <ServiceItem variants={serviceVariants}>
             <ServiceIcon whileHover={{ scale: 1.3 }} whileTap={{ scale: 0.9 }}>
+              <FaChartLine />
+            </ServiceIcon>
+            <ServiceTitle>Financial Modeling & Budgeting</ServiceTitle>
+            <ServiceDescription>
+              Unlock the potential of your business with predictive insights!
+              Helping you visualize future scenarios and navigate challenges.
+              From growth projections to risk management, we simplify your
+              financial future.
+            </ServiceDescription>
+          </ServiceItem>
+
+          <ServiceItem variants={serviceVariants}>
+            <ServiceIcon whileHover={{ scale: 1.3 }} whileTap={{ scale: 0.9 }}>
               <FaFileAlt />
             </ServiceIcon>
             <ServiceTitle>Additional Reporting Support</ServiceTitle>
             <ServiceDescription>
-              Need temporary assistance with requests from banks, investors, or
-              regulatory bodies? We’re here to help you manage these reporting
-              demands, freeing up your time to focus on daily operations.
-            </ServiceDescription>
-          </ServiceItem>
-          <ServiceItem variants={serviceVariants}>
-            <ServiceIcon whileHover={{ scale: 1.3 }} whileTap={{ scale: 0.9 }}>
-              <FaChartBar />
-            </ServiceIcon>
-            <ServiceTitle>Financial Planning and Analysis</ServiceTitle>
-            <ServiceDescription>
-              Worried about your long-term vision? We assist you in crafting and
-              refining your financial plan, generating insightful management
-              reports, and analyzing trends in cash flow. With our support,
-              answering "Where do you see yourself in five years?" becomes a
-              strategic conversation.
+              Our reporting support service would help you manage requests from
+              banks, investors, or regulatory authorities. We handle your
+              reporting needs efficiently, giving you more time to focus on
+              growing your business.
             </ServiceDescription>
           </ServiceItem>
         </ServicesGrid>

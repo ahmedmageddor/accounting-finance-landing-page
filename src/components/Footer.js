@@ -1,7 +1,7 @@
 // Footer.js
 import React from "react";
 import styled from "styled-components";
-import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa";
+import { FaLinkedin, FaInstagram } from "react-icons/fa";
 
 const FooterContainer = styled.footer`
   padding: 2em;
@@ -100,20 +100,6 @@ const Footer = () => {
           <FooterLink href="#contact">Contact Us</FooterLink>
         </FooterLinks>
         <SocialMediaLinks>
-          <SocialMediaIcon
-            href="https://www.facebook.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaFacebook />
-          </SocialMediaIcon>
-          <SocialMediaIcon
-            href="https://www.twitter.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaTwitter />
-          </SocialMediaIcon>
           <SocialMediaIcon
             href="https://www.linkedin.com"
             target="_blank"

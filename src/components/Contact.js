@@ -30,7 +30,7 @@ const ContactSection = styled.section`
 const ContactContent = styled(motion.div)`
   position: relative;
   z-index: 2;
-  max-width: 800px;
+  max-width: 400px;
   margin: 0 auto;
   padding: 2em;
   background: rgba(22, 22, 22, 1) 42%;

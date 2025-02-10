@@ -151,7 +151,7 @@ const FAQ = () => {
           {
             question: "What services do you offer?",
             answer:
-              "We offer a range of financial services including financial planning, accounting & bookkeeping, tax services, financial modeling & budgeting, financial statements, and financial planning and analysis.",
+              "We offer a range of financial services including financial planning, accounting & bookkeeping, financial modeling & budgeting, financial statements, and financial planning and analysis.",
           },
           {
             question: "How can I contact you?",
