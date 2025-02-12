@@ -31,7 +31,7 @@ const AboutContent = styled(motion.div)`
   margin: 0 auto;
   padding: 2em;
   background: rgba(22, 22, 22, 1) 42%;
-  border-radius: 10px;
+  border-radius: 10px 10px 0px 0px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   font-family: "Open Sans", sans-serif;
 

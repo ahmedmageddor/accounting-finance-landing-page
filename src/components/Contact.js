@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { FaLinkedin, FaInstagram } from "react-icons/fa";
+import axios from "axios";
 
 const ContactSection = styled.section`
   padding: 4em 2em;
@@ -30,7 +32,7 @@ const ContactSection = styled.section`
 const ContactContent = styled(motion.div)`
   position: relative;
   z-index: 2;
-  max-width: 400px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 2em;
   background: rgba(22, 22, 22, 1) 42%;
@@ -40,6 +42,7 @@ const ContactContent = styled(motion.div)`
 
   @media (max-width: 768px) {
     padding: 1em;
+    max-width: 400px;
   }
 `;
 
@@ -51,6 +54,30 @@ const ContactTitle = styled(motion.h2)`
 
   @media (max-width: 768px) {
     font-size: 2em;
+  }
+`;
+const SocialMediaLinks = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  margin-top: 1em;
+
+  @media (max-width: 768px) {
+    gap: 0.5em;
+  }
+`;
+
+const SocialMediaIcon = styled.a`
+  color: #fbcd37;
+  font-size: 2.5em;
+  transition: color 0.3s;
+
+  &:hover {
+    color: #fff;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 2.2em;
   }
 `;
 
@@ -112,6 +139,27 @@ const SubmitButton = styled(motion.button)`
 `;
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post("http://localhost:5000/send", formData);
+      alert("Email sent successfully!");
+    } catch (error) {
+      console.error("There was an error sending the email:", error);
+      alert("Failed to send email. Please try again later.");
+    }
+  };
+
   return (
     <ContactSection id="contact">
       <ContactContent
@@ -127,13 +175,17 @@ const Contact = () => {
           Contact Us
         </ContactTitle>
         <ContactForm
+          onSubmit={handleSubmit}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeInOut" }}
         >
           <Input
             type="text"
+            name="name"
             placeholder="Your Name"
+            value={formData.name}
+            onChange={handleChange}
             required
             whileFocus={{
               borderColor: "#fbcd37",
@@ -142,7 +194,10 @@ const Contact = () => {
           />
           <Input
             type="email"
+            name="email"
             placeholder="Your Email"
+            value={formData.email}
+            onChange={handleChange}
             required
             whileFocus={{
               borderColor: "#fbcd37",
@@ -150,8 +205,11 @@ const Contact = () => {
             }}
           />
           <TextArea
+            name="message"
             rows="5"
             placeholder="Your Message"
+            value={formData.message}
+            onChange={handleChange}
             required
             whileFocus={{
               borderColor: "#fbcd37",
@@ -170,6 +228,22 @@ const Contact = () => {
             Send Message
           </SubmitButton>
         </ContactForm>
+        <SocialMediaLinks>
+          <SocialMediaIcon
+            href="https://www.linkedin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaLinkedin />
+          </SocialMediaIcon>
+          <SocialMediaIcon
+            href="https://www.instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaInstagram />
+          </SocialMediaIcon>
+        </SocialMediaLinks>
       </ContactContent>
     </ContactSection>
   );

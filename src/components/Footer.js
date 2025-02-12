@@ -1,7 +1,6 @@
 // Footer.js
 import React from "react";
 import styled from "styled-components";
-import { FaLinkedin, FaInstagram } from "react-icons/fa";
 
 const FooterContainer = styled.footer`
   padding: 2em;
@@ -51,31 +50,6 @@ const FooterLink = styled.a`
   }
 `;
 
-const SocialMediaLinks = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 1em;
-  margin-top: 1em;
-
-  @media (max-width: 768px) {
-    gap: 0.5em;
-  }
-`;
-
-const SocialMediaIcon = styled.a`
-  color: #fbcd37;
-  font-size: 1.5em;
-  transition: color 0.3s;
-
-  &:hover {
-    color: #fff;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 1.2em;
-  }
-`;
-
 const FooterText = styled.p`
   font-size: 0.9em;
   color: #fbcd37;
@@ -99,22 +73,7 @@ const Footer = () => {
           <FooterLink href="#reviews">Reviews</FooterLink>
           <FooterLink href="#contact">Contact Us</FooterLink>
         </FooterLinks>
-        <SocialMediaLinks>
-          <SocialMediaIcon
-            href="https://www.linkedin.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaLinkedin />
-          </SocialMediaIcon>
-          <SocialMediaIcon
-            href="https://www.instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaInstagram />
-          </SocialMediaIcon>
-        </SocialMediaLinks>
+
         <FooterText>
           © {new Date().getFullYear()} Ahmed M. All rights reserved.
         </FooterText>

@@ -45,13 +45,13 @@ const HeroTitle = styled(motion.h1)`
 `;
 
 const HeroText = styled.p`
-  font-size: 1.5em;
+  font-size: 1.6em;
   margin-bottom: 1em;
   color: #fff;
   font-family: "LogoFont", sans-serif;
 
   @media (max-width: 768px) {
-    font-size: 1.2em;
+    font-size: 1.6em;
   }
 `;
 
