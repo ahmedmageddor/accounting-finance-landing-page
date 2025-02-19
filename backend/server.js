@@ -13,16 +13,16 @@ app.post("/send", (req, res) => {
   const { name, email, message } = req.body;
 
   const transporter = nodemailer.createTransport({
-    service: "gmail",
+    service: "outlok",
     auth: {
-      user: "your-email@gmail.com",
-      pass: "your-email-password",
+      user: "finmodelx@outlook.com",
+      pass: "MahdyHema1999",
     },
   });
 
   const mailOptions = {
     from: email,
-    to: "your-email@gmail.com",
+    to: "finmodelx@outlook.com",
     subject: `Contact form submission from ${name}`,
     text: message,
   };

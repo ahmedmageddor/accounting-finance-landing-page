@@ -237,7 +237,7 @@ const Contact = () => {
             <FaLinkedin />
           </SocialMediaIcon>
           <SocialMediaIcon
-            href="https://www.instagram.com"
+            href="https://www.instagram.com/finmodelx?igsh=MWZ2c2NwdGV2dmp4bQ%3D%3D&utm_source=qr"
             target="_blank"
             rel="noopener noreferrer"
           >
